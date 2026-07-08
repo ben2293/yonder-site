@@ -5,19 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yonder — A place someone saved for you</title>
 <meta property="og:title" content="Yonder">
-<meta property="og:description" content="A nudge near your fav places. Save any spot, get notified the moment you're there.">
+<meta property="og:description" content="Someone shared a place with you from Yonder — a free app that quietly notifies you the moment you're near somewhere you've saved.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://ben2293.github.io/yonder-site/icon.png">
 <style>
   :root { color-scheme: light dark; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6; max-width: 480px; margin: 0 auto; padding: 64px 24px;
+    line-height: 1.6; max-width: 480px; margin: 0 auto; padding: 56px 24px;
     color: #1c1c1e; background: #fff; text-align: center;
   }
   @media (prefers-color-scheme: dark) { body { color: #f2f2f7; background: #000; } }
-  h1 { font-size: 1.6rem; margin-bottom: .25rem; }
-  .tag { color: #8e8e93; margin-top: 0; }
-  #placeName { font-size: 1.1rem; font-weight: 600; margin-top: 2rem; }
+  .icon {
+    width: 84px; height: 84px; border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  }
+  h1 {
+    font-size: 1.5rem; font-weight: 700; line-height: 1.35;
+    margin: 1.5rem 0 .5rem;
+  }
+  .wordmark { color: #8e8e93; font-size: .9rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; margin: 0; }
+  #placeName { font-size: 1.15rem; font-weight: 600; margin-top: 2rem; }
   #placeSub { color: #8e8e93; font-size: .9rem; }
   .cta {
     display: inline-block; margin-top: 2rem; padding: 14px 28px;
@@ -29,8 +37,9 @@
 </style>
 </head>
 <body>
-  <h1>Yonder</h1>
-  <p class="tag">A nudge near your fav places</p>
+  <img class="icon" src="icon.png" alt="Yonder">
+  <p class="wordmark">Yonder</p>
+  <h1>Someone shared a place with you from Yonder — a free app that quietly notifies you the moment you're near somewhere you've saved.</h1>
 
   <div id="placeName"></div>
   <div id="placeSub"></div>
@@ -39,7 +48,7 @@
   <a class="secondary" href="#" id="mapsLink" style="display:none">Open in Apple Maps instead</a>
 
   <footer>
-    <p>Someone shared a place with you from Yonder — a free app that quietly notifies you the moment you're near somewhere you've saved.</p>
+    <p>© 2026 Yonder</p>
   </footer>
 
   <script>
