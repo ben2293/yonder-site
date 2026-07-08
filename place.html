@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yonder — A place someone saved for you</title>
+<meta property="og:title" content="Yonder">
+<meta property="og:description" content="A nudge near your fav places. Save any spot, get notified the moment you're there.">
+<meta property="og:type" content="website">
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6; max-width: 480px; margin: 0 auto; padding: 64px 24px;
+    color: #1c1c1e; background: #fff; text-align: center;
+  }
+  @media (prefers-color-scheme: dark) { body { color: #f2f2f7; background: #000; } }
+  h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+  .tag { color: #8e8e93; margin-top: 0; }
+  #placeName { font-size: 1.1rem; font-weight: 600; margin-top: 2rem; }
+  #placeSub { color: #8e8e93; font-size: .9rem; }
+  .cta {
+    display: inline-block; margin-top: 2rem; padding: 14px 28px;
+    background: #007aff; color: #fff; border-radius: 12px;
+    text-decoration: none; font-weight: 600;
+  }
+  .secondary { display: block; margin-top: 1rem; font-size: .9rem; color: #007aff; text-decoration: none; }
+  footer { margin-top: 3rem; font-size: .8rem; color: #8e8e93; }
+</style>
+</head>
+<body>
+  <h1>Yonder</h1>
+  <p class="tag">A nudge near your fav places</p>
+
+  <div id="placeName"></div>
+  <div id="placeSub"></div>
+
+  <!-- TODO: replace with the real https://apps.apple.com/app/id... link once Yonder is approved and public -->
+  <a class="cta" href="https://ben2293.github.io/yonder-site/" id="appStoreLink">Get Yonder</a>
+  <a class="secondary" href="#" id="mapsLink" style="display:none">Open in Apple Maps instead</a>
+
+  <footer>
+    <p>Someone shared a place with you from Yonder — a free app that quietly notifies you the moment you're near somewhere you've saved.</p>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    const lat = params.get('lat');
+    const lon = params.get('lon');
+    if (name) {
+      document.getElementById('placeName').textContent = decodeURIComponent(name.replace(/\+/g, ' '));
+      document.title = name + ' — shared via Yonder';
+    }
+    if (lat && lon) {
+      document.getElementById('placeSub').textContent = 'Saved as a Yonder reminder';
+      const mapsLink = document.getElementById('mapsLink');
+      mapsLink.href = `https://maps.apple.com/?ll=${lat},${lon}&q=${encodeURIComponent(name || 'Pin')}`;
+      mapsLink.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
